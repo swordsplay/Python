@@ -1,0 +1,106 @@
+bank = True
+money = 10000
+shartesla = 0
+sharamazon = 0
+name = input('What is your name? ')
+if name == 'bertrand':
+    print('Welcome sir')
+    money = 10000000000
+    shartesla += 1000
+    sharamazon += 1000
+print('type help to see what you can do')
+while bank is True:
+    command = input('enter your command! ')
+    shares_amazon = 0
+    shares_tesla = 0
+    if command == 'help':
+        helpme = ['Use bal to access how much money you have'], ['Use buyhelp to access buy help'], [
+            'Use sellhelp to access sell help']
+        for x in helpme:
+            for y in x:
+                print(y)
+    elif command == 'buyhelp':
+        buyhelp = ['Type buy to start buying shares'], ['Type amazon to buy amazon shares'], [
+            'Type tesla to buy tesla shares']
+        for z in buyhelp:
+            for t in z:
+                print(t)
+    elif command == 'sellhelp':
+        sellhelp = ['Type sell to start selling shares'], ['Type amazon to sell amazon shares'], [
+            'Type tesla to sell tesla shares']
+        for z in sellhelp:
+            for t in z:
+                print(t)
+    elif command == 'bal':
+        print("you have " + str(money) + ' dollars')
+        print('You have ' + str(sharamazon) + ' of amazon shares')
+        print('You have ' + str(shartesla) + ' of tesla shares')
+    elif command == 'buy':
+        money1 = input('what shares do you want? ')
+        if money >= 1:
+            if money1 == 'amazon':
+                how_much = input("How many shares of 'amazon' do you want ")
+                shares_amazon = shares_amazon + int(how_much)
+                print('you are buying ' + str(shares_amazon) + ' shares')
+                total1 = int(shares_amazon) * 1000
+                print('You are going to spend ' + str(total1) + ' dollars')
+                money = money - int(total1)
+                print('you now have ' + str(money) + ' Dollars')
+                sharamazon = sharamazon + int(shares_amazon)
+            elif money1 == 'tesla':
+                how_much = input("How many shares of 'tesla' do you want ")
+                shares_tesla = shares_tesla + int(how_much)
+                print('you are going to buy ' + str(shares_tesla) + ' shares')
+                total1 = shares_tesla * 2000
+                print('You are going to spend ' + str(total1) + ' dollars')
+                money -= int(total1)
+                print('you now have ' + str(money) + ' Dollars')
+                shartesla = shartesla + int(shares_tesla)
+            elif money <= -10000000:
+                print('sorry you are to poor')
+                bank = False
+        elif money <= 0:
+            print('sell your shares first ')
+        elif money1.isdigit():
+            print('do not use numerals ')
+        else:
+            print('undefined value')
+    elif command == 'sell':
+        money3 = input('what shares do you want to sell? ')
+        if money3 == 'amazon':
+            how_much = input("How many shares of 'amazon' do you want to sell ")
+            shares_amazon = shares_amazon - int(how_much)
+            print('you are going to sell ' + str(shares_amazon) + ' shares')
+            total1 = shares_amazon * 1000
+            money -= int(total1)
+            print('you now have ' + str(money) + ' Dollars')
+            sharamazon = sharamazon + int(shares_amazon)
+            if money <= -10000000:
+                print('sorry you are to poor')
+                bank = False
+        elif money3 == 'tesla':
+            how_much = input("How many shares of 'tesla' do you want to sell ")
+            shares_tesla = shares_tesla - int(how_much)
+            print('you are going to sell ' + (str(shares_tesla)) + ' total shares')
+            total1 = shares_tesla * 2000
+            money -= int(total1)
+            print('you now have ' + str(money) + ' Dollars')
+            shartesla = shartesla + int(shares_tesla)
+            if money <= -10000000:
+                print('sorry you are to poor')
+                bank = False
+        elif money3.isdigit():
+            print('please do no use numerals')
+        else:
+            print('undefined value')
+    elif command == 'super money':
+        money += 1000000
+        print('please use Help to access hElp')
+    elif command == 'break':
+        bank = False
+    elif command == 'restart':
+        sharamazon = 0
+        shartesla = 0
+        money = 10000
+    else:
+        print('please use help to access help')
